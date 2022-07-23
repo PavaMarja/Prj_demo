@@ -21,11 +21,18 @@ class Tipvojske extends Model
     ];
 
     protected $fillable = [
-        'naziv_tipvojske',
+        'rodvojske_id',
+        'kol',
+        'koefuboj',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function rodvojske()
+    {
+        return $this->belongsTo(Rodvojske::class, 'rodvojske_id');
+    }
 
     public function vrstaoruzjas()
     {

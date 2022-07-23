@@ -17,15 +17,20 @@ class UpdateTipvojskeRequest extends FormRequest
     public function rules()
     {
         return [
-            'naziv_tipvojske' => [
-                'string',
-                'nullable',
-            ],
             'vrstaoruzjas.*' => [
                 'integer',
             ],
             'vrstaoruzjas' => [
                 'array',
+            ],
+            'kol' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
+            'koefuboj' => [
+                'numeric',
             ],
         ];
     }

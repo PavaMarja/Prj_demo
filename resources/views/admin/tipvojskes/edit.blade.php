@@ -11,12 +11,16 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="naziv_tipvojske">{{ trans('cruds.tipvojske.fields.naziv_tipvojske') }}</label>
-                <input class="form-control {{ $errors->has('naziv_tipvojske') ? 'is-invalid' : '' }}" type="text" name="naziv_tipvojske" id="naziv_tipvojske" value="{{ old('naziv_tipvojske', $tipvojske->naziv_tipvojske) }}">
-                @if($errors->has('naziv_tipvojske'))
-                    <span class="text-danger">{{ $errors->first('naziv_tipvojske') }}</span>
+                <label for="rodvojske_id">{{ trans('cruds.tipvojske.fields.rodvojske') }}</label>
+                <select class="form-control select2 {{ $errors->has('rodvojske') ? 'is-invalid' : '' }}" name="rodvojske_id" id="rodvojske_id">
+                    @foreach($rodvojskes as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('rodvojske_id') ? old('rodvojske_id') : $tipvojske->rodvojske->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('rodvojske'))
+                    <span class="text-danger">{{ $errors->first('rodvojske') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.tipvojske.fields.naziv_tipvojske_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.tipvojske.fields.rodvojske_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="vrstaoruzjas">{{ trans('cruds.tipvojske.fields.vrstaoruzja') }}</label>
@@ -33,6 +37,22 @@
                     <span class="text-danger">{{ $errors->first('vrstaoruzjas') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.tipvojske.fields.vrstaoruzja_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="kol">{{ trans('cruds.tipvojske.fields.kol') }}</label>
+                <input class="form-control {{ $errors->has('kol') ? 'is-invalid' : '' }}" type="number" name="kol" id="kol" value="{{ old('kol', $tipvojske->kol) }}" step="1">
+                @if($errors->has('kol'))
+                    <span class="text-danger">{{ $errors->first('kol') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.tipvojske.fields.kol_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="koefuboj">{{ trans('cruds.tipvojske.fields.koefuboj') }}</label>
+                <input class="form-control {{ $errors->has('koefuboj') ? 'is-invalid' : '' }}" type="number" name="koefuboj" id="koefuboj" value="{{ old('koefuboj', $tipvojske->koefuboj) }}" step="0.01">
+                @if($errors->has('koefuboj'))
+                    <span class="text-danger">{{ $errors->first('koefuboj') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.tipvojske.fields.koefuboj_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
