@@ -76,63 +76,63 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 17,
-                'title' => 'vojske_create',
-            ],
-            [
-                'id'    => 18,
-                'title' => 'vojske_edit',
-            ],
-            [
-                'id'    => 19,
-                'title' => 'vojske_show',
-            ],
-            [
-                'id'    => 20,
-                'title' => 'vojske_delete',
-            ],
-            [
-                'id'    => 21,
-                'title' => 'vojske_access',
-            ],
-            [
-                'id'    => 22,
                 'title' => 'tipvojske_create',
             ],
             [
-                'id'    => 23,
+                'id'    => 18,
                 'title' => 'tipvojske_edit',
             ],
             [
-                'id'    => 24,
+                'id'    => 19,
                 'title' => 'tipvojske_show',
             ],
             [
-                'id'    => 25,
+                'id'    => 20,
                 'title' => 'tipvojske_delete',
             ],
             [
-                'id'    => 26,
+                'id'    => 21,
                 'title' => 'tipvojske_access',
             ],
             [
-                'id'    => 27,
+                'id'    => 22,
                 'title' => 'oruzja_create',
             ],
             [
-                'id'    => 28,
+                'id'    => 23,
                 'title' => 'oruzja_edit',
             ],
             [
-                'id'    => 29,
+                'id'    => 24,
                 'title' => 'oruzja_show',
             ],
             [
-                'id'    => 30,
+                'id'    => 25,
                 'title' => 'oruzja_delete',
             ],
             [
-                'id'    => 31,
+                'id'    => 26,
                 'title' => 'oruzja_access',
+            ],
+            [
+                'id'    => 27,
+                'title' => 'rodvojske_create',
+            ],
+            [
+                'id'    => 28,
+                'title' => 'rodvojske_edit',
+            ],
+            [
+                'id'    => 29,
+                'title' => 'rodvojske_show',
+            ],
+            [
+                'id'    => 30,
+                'title' => 'rodvojske_delete',
+            ],
+            [
+                'id'    => 31,
+                'title' => 'rodvojske_access',
             ],
             [
                 'id'    => 32,

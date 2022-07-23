@@ -27,14 +27,6 @@
                 <span class="help-block">{{ trans('cruds.oruzja.fields.koef_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="kol">{{ trans('cruds.oruzja.fields.kol') }}</label>
-                <input class="form-control {{ $errors->has('kol') ? 'is-invalid' : '' }}" type="number" name="kol" id="kol" value="{{ old('kol', $oruzja->kol) }}" step="1">
-                @if($errors->has('kol'))
-                    <span class="text-danger">{{ $errors->first('kol') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.oruzja.fields.kol_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

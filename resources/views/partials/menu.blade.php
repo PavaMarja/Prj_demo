@@ -71,6 +71,18 @@
                         </ul>
                     </li>
                 @endcan
+                @can('rodvojske_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.rodvojskes.index") }}" class="nav-link {{ request()->is("admin/rodvojskes") || request()->is("admin/rodvojskes/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-cogs">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.rodvojske.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @can('oruzja_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.oruzjas.index") }}" class="nav-link {{ request()->is("admin/oruzjas") || request()->is("admin/oruzjas/*") ? "active" : "" }}">
@@ -91,18 +103,6 @@
                             </i>
                             <p>
                                 {{ trans('cruds.tipvojske.title') }}
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                @can('vojske_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.vojskes.index") }}" class="nav-link {{ request()->is("admin/vojskes") || request()->is("admin/vojskes/*") ? "active" : "" }}">
-                            <i class="fa-fw nav-icon fas fa-cogs">
-
-                            </i>
-                            <p>
-                                {{ trans('cruds.vojske.title') }}
                             </p>
                         </a>
                     </li>

@@ -25,10 +25,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
 
-    // Vojske
-    Route::delete('vojskes/destroy', 'VojskeController@massDestroy')->name('vojskes.massDestroy');
-    Route::resource('vojskes', 'VojskeController');
-
     // Tipvojske
     Route::delete('tipvojskes/destroy', 'TipvojskeController@massDestroy')->name('tipvojskes.massDestroy');
     Route::resource('tipvojskes', 'TipvojskeController');
@@ -36,6 +32,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Oruzja
     Route::delete('oruzjas/destroy', 'OruzjaController@massDestroy')->name('oruzjas.massDestroy');
     Route::resource('oruzjas', 'OruzjaController');
+
+    // Rodvojske
+    Route::delete('rodvojskes/destroy', 'RodvojskeController@massDestroy')->name('rodvojskes.massDestroy');
+    Route::resource('rodvojskes', 'RodvojskeController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

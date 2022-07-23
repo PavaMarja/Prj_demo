@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.tipvojske.fields.naziv_tipvojske') }}
+                            {{ trans('cruds.tipvojske.fields.rodvojske') }}
                         </th>
                         <td>
-                            {{ $tipvojske->naziv_tipvojske }}
+                            {{ $tipvojske->rodvojske->rodvojske ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -39,6 +39,22 @@
                             @foreach($tipvojske->vrstaoruzjas as $key => $vrstaoruzja)
                                 <span class="label label-info">{{ $vrstaoruzja->naziv_oruzja }}</span>
                             @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.tipvojske.fields.kol') }}
+                        </th>
+                        <td>
+                            {{ $tipvojske->kol }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.tipvojske.fields.koefuboj') }}
+                        </th>
+                        <td>
+                            {{ $tipvojske->koefuboj }}
                         </td>
                     </tr>
                 </tbody>

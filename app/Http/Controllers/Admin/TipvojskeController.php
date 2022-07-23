@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyTipvojskeRequest;
 use App\Http\Requests\StoreTipvojskeRequest;
 use App\Http\Requests\UpdateTipvojskeRequest;
 use App\Models\Oruzja;
+use App\Models\Rodvojske;
 use App\Models\Tipvojske;
 use Gate;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class TipvojskeController extends Controller
     {
         abort_if(Gate::denies('tipvojske_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tipvojskes = Tipvojske::with(['vrstaoruzjas'])->get();
+        $tipvojskes = Tipvojske::with(['rodvojske', 'vrstaoruzjas'])->get();
 
         return view('admin.tipvojskes.index', compact('tipvojskes'));
     }
@@ -27,9 +28,11 @@ class TipvojskeController extends Controller
     {
         abort_if(Gate::denies('tipvojske_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $rodvojskes = Rodvojske::pluck('rodvojske', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $vrstaoruzjas = Oruzja::pluck('naziv_oruzja', 'id');
 
-        return view('admin.tipvojskes.create', compact('vrstaoruzjas'));
+        return view('admin.tipvojskes.create', compact('rodvojskes', 'vrstaoruzjas'));
     }
 
     public function store(StoreTipvojskeRequest $request)
@@ -44,11 +47,13 @@ class TipvojskeController extends Controller
     {
         abort_if(Gate::denies('tipvojske_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $rodvojskes = Rodvojske::pluck('rodvojske', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $vrstaoruzjas = Oruzja::pluck('naziv_oruzja', 'id');
 
-        $tipvojske->load('vrstaoruzjas');
+        $tipvojske->load('rodvojske', 'vrstaoruzjas');
 
-        return view('admin.tipvojskes.edit', compact('tipvojske', 'vrstaoruzjas'));
+        return view('admin.tipvojskes.edit', compact('rodvojskes', 'tipvojske', 'vrstaoruzjas'));
     }
 
     public function update(UpdateTipvojskeRequest $request, Tipvojske $tipvojske)
@@ -63,7 +68,7 @@ class TipvojskeController extends Controller
     {
         abort_if(Gate::denies('tipvojske_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tipvojske->load('vrstaoruzjas');
+        $tipvojske->load('rodvojske', 'vrstaoruzjas');
 
         return view('admin.tipvojskes.show', compact('tipvojske'));
     }

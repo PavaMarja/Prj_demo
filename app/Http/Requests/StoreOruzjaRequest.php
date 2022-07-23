@@ -27,12 +27,6 @@ class StoreOruzjaRequest extends FormRequest
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'kol' => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
-            ],
         ];
     }
 }

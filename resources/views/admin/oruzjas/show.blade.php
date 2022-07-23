@@ -39,14 +39,6 @@
                             {{ $oruzja->koef }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.oruzja.fields.kol') }}
-                        </th>
-                        <td>
-                            {{ $oruzja->kol }}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

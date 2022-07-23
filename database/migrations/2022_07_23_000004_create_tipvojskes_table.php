@@ -4,13 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVojskesTable extends Migration
+class CreateTipvojskesTable extends Migration
 {
     public function up()
     {
-        Schema::create('vojskes', function (Blueprint $table) {
+        Schema::create('tipvojskes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('vojska')->nullable();
+            $table->integer('kol')->nullable();
+            $table->float('koefuboj', 15, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

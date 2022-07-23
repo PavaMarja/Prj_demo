@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Oruzja extends Model
+class Rodvojske extends Model
 {
     use SoftDeletes;
     use HasFactory;
 
-    public $table = 'oruzjas';
+    public $table = 'rodvojskes';
 
     protected $dates = [
         'created_at',
@@ -21,12 +21,16 @@ class Oruzja extends Model
     ];
 
     protected $fillable = [
-        'naziv_oruzja',
-        'koef',
+        'rodvojske',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function rodvojskeTipvojskes()
+    {
+        return $this->hasMany(Tipvojske::class, 'rodvojske_id', 'id');
+    }
 
     protected function serializeDate(DateTimeInterface $date)
     {
